@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Teko', sans-serif;
+
+}
+
+.hero {
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    position: relative;
+}
+
+
+
+.sliderimg {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+position: relative;
+
+}
+
+.s1 {
+    background-image: url("./28430539_7426287.svg");
+
+}
+
+.s2 {
+    background-image: url("img/naomi-hebert-MP0bgaS_d1c-unsplash\ \(2\).jpg");
+
+}
+
+.s3 {
+    background-image: url("./depositphotos_254263010-stock-photo-positive-female-cleaner-looks-down.jpg");
+
+}
+
+.slider.active .sliderimg {
+    display: block;
+}
+
+.black {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+}
+
+.slider.active .black {
+    display: block;
+}
+
+.hero-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    font-family: 'Teko', sans-serif;
+display: flex;
+justify-content: center;
+text-align: center;
+align-items: center;
+}
+
+@media (max-width: 767px) {
+    .hero-content {
+
+
+
+
+    }
+}
+
+
+.hero-title {
+    position: static;
+
+    font-family: 'Teko', sans-serif;
+    font-size: 9vw;
+    /* Adjust font size as per your requirement */
+    font-weight: 700;
+    /* Use 400 for regular font weight */
+    color: #ffffff;
+    /* Choose the color you prefer */
+    text-transform: uppercase;
+margin-top: 80px;
+    z-index: 99;
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+
+
+    
+
+    }
+}
+
+.slider.active .hero-title {
+    display: block;
+}
+
+.hero-brandname {
+    position: absolute;
+
+    font-family: 'Teko', sans-serif;
+    font-size: 3vw;
+    /* Adjust font size as per your requirement */
+    font-weight: 700;
+    /* Use 400 for regular font weight */
+    color: #ffffff;
+    /* Choose the color you prefer */
+    text-transform: uppercase;
+
+    display: none;
+    z-index: 99;
+}
+
+@media (max-width: 767px) {
+    .hero-brandname {
+        position: static;
+
+        font-size: 5vw;
+        text-align: center;
+        opacity: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.slider.active .hero-brandname {
+    display: block;
+}
+
+
+
+.hero-logo {
+    width: 12vw;
+    left: 5%;
+    position: absolute;
+    top: 35%;
+
+    display: none;
+    z-index: 99;
+
+}
+
+
+
+.slider.active .hero-logo {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .hero-logo {
+        width: 25vw;
+        display: none;
+    }
+
+    .slider.active .hero-logo {
+        display: none;
+    }
+}
+
+
+
+.shape1 {
+    position: absolute;
+    right: -10vw;
+    bottom: 0;
+    width: 100vh;
+    z-index: 2;
+
+
+}
+
+.slider.active .shape1 {
+    display: block;
+}
+
+.shape2 {
+    position: absolute;
+    right: -1vw;
+    bottom: 0;
+    width: 100vh;
+    z-index: 1;
+    display: none;
+
+}
+
+.slider.active .shape2 {
+    display: block;
+}
+
+
+
+
+
+.contactbtn {
+    padding: 24px;
+    background-color: #c12323;
+    font-size: 20px;
+    position: static;
+    color: #ffffff;
+    border-radius: 8px;
+    text-align: center; /* Center the text horizontally */
+    text-transform: uppercase;
+    font-weight: 600;
+    display: none;
+    width: 150px;
+
+    opacity: 0;
+
+    margin: 0 auto; /* Center horizontally */
+}
+
+@media (max-width: 767px) {
+    .slider.active .contactbtn{
+        display: block;
+    }
+    .shape1 {
+        position: absolute;
+        right: -80vw;
+        bottom: 0;
+        width: 100vh;
+        z-index: 2;
+    
+    
+    }
+
+    .shape2 {
+        position: absolute;
+        right: -30vw;
+        bottom: 0;
+        width: 100vh;
+        z-index: 1;
+        display: none;
+    
+    }
+    
+
+}
