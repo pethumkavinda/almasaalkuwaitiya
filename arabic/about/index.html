@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <meta http-equiv="refresh" content="10"> -->
+  <title>Your Agency</title>
+  <meta charset="UTF-8">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Montserrat:wght@400;700;800;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Montserrat:wght@400;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylehero.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 858px) {
+      .aboutsec {
+        display: flex;
+        padding: 4%;
+        background-color: azure;
+        margin: 1%;
+        border-radius: 20px;
+        flex-direction: column;
+
+      }
+
+      .aboutsec .title {
+        font-size: 25px;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .aboutsec1 {
+        width: 100%;
+        margin: 3%;
+      }
+
+      .aboutsec2 {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        border-radius: 0px;
+
+      }
+
+      .aboutimg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s ease;
+
+      }
+
+      .aboutdetails {
+        display: block;
+        margin-top: 10px;
+        text-align: justify;
+      }
+
+      .desktopb {
+        display: none;
+      }
+
+      .phoneb {
+        display: block;
+      }
+
+    }
+
+
+
+    @media (max-width: 858px) {
+      .summarysec {
+        padding: 5%;
+
+        font-size: 30px;
+        max-width: 100%;
+        flex-wrap: wrap;
+        padding-right: 10%;
+
+      }
+
+      .summitem {
+        width: 140px;
+
+
+      }
+
+      .number {
+        display: inline-block;
+        font-size: 20px;
+        margin: 5px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .tag {
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      /* office sec */
+
+      .offices {
+        display: flex;
+        padding: 3%;
+
+        margin: 1%;
+        border-radius: 20px;
+        flex-direction: column;
+
+
+      }
+
+      .officeitem {
+        width: 95%;
+        background-color: azure;
+        border-radius: 20px;
+        margin: 2%;
+        padding: 3%;
+
+
+
+
+      }
+
+      .officeitem:hover {
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .offices iframe {
+        border-radius: 20px;
+        width: 100%;
+        aspect-ratio: 4/3;
+        margin: 1%;
+        /* Basic box shadow with a black shadow, no spread, and a blur of 5px */
+
+
+      }
+
+      .officedetails {
+        font-size: 18px;
+        padding: 1%;
+
+      }
+
+      /* country sec */
+
+      .countrysec {
+        padding: 3%;
+        margin: 1%;
+      }
+
+      .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        max-width: 100%;
+        margin: 5px;
+      }
+
+      .image-card {
+        width: 80px;
+
+        padding: 5px;
+        border-radius: 8px;
+
+        text-align: center;
+      }
+
+      .image-card img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .image-info {
+        color: #333;
+
+      }
+
+      .image-info h3 {
+        margin: 0;
+      }
+
+      .image-info p {
+        margin: 0;
+        display: none;
+      }
+
+    }
+  </style>
+  <style>
+    .loading-indicator {
+      display: none;
+      /* Start with the indicator hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      /* Change the background color and transparency as needed */
+      z-index: 999999;
+      /* Ensure it's on top of other elements */
+    }
+
+    .loading-indicator img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      /* Set the width and height of the image as needed */
+      height: 50px;
+      animation: rotate 2s linear infinite;
+      /* Add a rotating animation */
+    }
+
+    @keyframes rotate {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+  </style>
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-P949QM6HHC" async></script>
+  </script>
+
+</head>
+
+<body>
+
+
+
+  <!-- <nav>
+    <img src="almasaw.png" alt="" class="logoicon">
+    <img src="almasa1w.png" alt="" class="logoicon1">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    
+    <ul>
+      <li><a class="" href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="arabic/index.html" style="font-family: 'IBM Plex Sans Arabic', sans-serif;">عربي</a></li>
+    </ul>
+  </nav> -->
+
+
+  <div class="headerdes">
+    <div class="logo"> <img src="almasaw.png" alt="" class="logoicon">
+      <img src="almasa1w.png" alt="" class="logoicon1">
+    </div>
+
+    <div class="menu"><!-- In your HTML where you want to display the menu icon -->
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul>
+      <li ><a href="../">الصفحة الرئيسية</a></li>
+      <li ><a href="../services">الخدمات</a></li>
+      <li class="active"><a href="../about">معلومات عنا</a></li>
+      <li><a href="../contact">اتصل بنا</a></li>
+      <li><a href="../../">english</a></li>
+    </ul>
+  </div>
+  <!-- hiddenf -->
+  <div class="menusec hiddenf">
+    <div class="menusec1">
+      <div class="menuclose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="menucontent">
+        <ul>
+          <li ><a href="../">الصفحة الرئيسية</a></li>
+          <li><a href="../services">الخدمات</a></li>
+          <li><a href="../about">معلومات عنا</a></li>
+          <li><a href="../contact">اتصل بنا</a></li>
+          <li><a href="../../">english</a></li>
+        </ul>
+        <div class="hbar"></div>
+        <p>اكتشف عالمًا من الخدمات المنزلية الاستثنائية في الماسة الكويتية. من الخادمات المهرة إلى السائقين الموثوق بهم، والطهاة الموهوبين، والمربين المهتمين، ومربيات الأطفال المتفانين، لدينا المحترفين المثاليين لتلبية احتياجاتك الفريدة. دعنا نرفع تجربتك في المنزل ونجلب الانسجام إلى حياتك اليومية.</p>
+
+        <br><br>
+        <p class="email">info@almasaalkuwaitiya.com<br> + 965 99576850 </p>
+      </div>
+    </div>
+    <div class="menusec2">
+
+    </div>
+  </div>
+  <div class="lchanger">عربي</div>
+  <a name="home"></a>
+
+  <div class="hero">
+
+    <div class="slider active">
+      <div class="sliderimg s1"></div>
+      <div class="black"></div>
+      <div class="hero-content">
+        <img src="shape1.webp" class="shape1" alt="">
+        <img src="shape2.webp" class="shape2" alt="">
+
+       
+        <div class="hero-title">معلومات عنا</div>
+ 
+  
+      </div>
+    </div>
+
+  </div>
+  
+
+  <!-- whatsapp -->
+
+  <a href="tel:+96599576850" class="btn-whatsapp-pulse callphone">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <a href="https://wa.me/+96567780577" target="_blank" class="btn-whatsapp-pulse btn-whatsapp-pulse-border descktop">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://wa.me/+96567780577" class="btn-whatsapp-pulse btn-whatsapp-pulse-border phone">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- about2 -->
+  <div class="about2">
+    <div class="about2-sec1">
+      <div class="about2-title">نحن وكالة مسؤولة لتوظيف العمالة المنزلية</div>
+      <div class="about2-sec12">
+        <img src="fulllogo colored.png" alt="">
+        <p>نحن في الماسة الكويتية نفتخر بتوفير حلول استثنائية للعمالة المنزلية للأسر في جميع أنحاء الكويت. تأسست وكالتنا برؤية لتعزيز التواصل بين العمالة الأجنبية المهرة والعائلات الكويتية، وقد كنا اسمًا موثوقًا في هذه الصناعة لمدة [أدخل عدد السنوات] سنوات.</p>
+      </div>
+    </div>
+    <div class="about2-sec2">
+      <div class="expandedqcard expanded">
+        <div class="sec1">
+          <div class="ex-quetion">1. من نحن؟</div>
+          <div class="plus">+</div>
+          <div class="mines">_</div>
+        </div>
+        <p>نحن وكالة موثوقة تتخصص في توفير الخدم الأجنبيين المتميزين الذين يتمتعون بالمهارات العالية والموثوقية والتفاني في تقديم خدمات ممتازة. نحن نقدم مجموعة متنوعة من الخدمات، بدءًا من الخادمات وحتى السائقين المنزليين، والخدم المنزلية، والطهاة (ذكور/إناث)، ورعاة الأطفال، ومربيات الأطفال، لتلبية احتياجات كل منزل بشكل فريد.</p>
+      </div>
+      <div class="expandedqcard">
+        <div class="sec1">
+          <div class="ex-quetion">2. التزامنا</div>
+          <div class="plus">+</div>
+          <div class="mines">_</div>
+        </div>
+        <p>في الماسة الكويتية، تكمن مهمتنا في تجاوز توقعات عملائنا من خلال تزويدهم بالعمالة المنزلية التي تمتلك ليس فقط المهارات المطلوبة ولكن أيضًا التزامًا بالاحترافية والنزاهة. نحن ندرك أن استضافة شخص ما في منزلك قرار مهم، ونسعى جاهدين لجعل هذه العملية سلسة وموثوقة قدر الإمكان.</p>
+      </div>
+      <div class="expandedqcard">
+        <div class="sec1">
+          <div class="ex-quetion">3. تواصل معنا</div>
+          <div class="plus">+</div>
+          <div class="mines">_</div>
+        </div>
+        <p>إذا كنت تبحث عن عمالة منزلية موثوقة، مهرة وجديرة بالثقة لتحسين منزلك، فلا تبحث بعيدًا. اتصل بنا اليوم، وسيكون فريقنا الودود على استعداد لمناقشة احتياجاتك وإيجاد الحل المثالي لاحتياجاتك.
+  
+        انضم إلى عائلة الماسة الكويتية واستمتع بخدمات استقدام منزلية لا مثيل لها تجعل حياتك أكثر راحة ومنزلك سعيدًا حقًا.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- footer -->
+  <div class="footer">
+    <div class="calltoaction">رضاؤكم هو أولويتنا - تواصلوا معنا!</div>
+    <div class="footerdetails">
+      <div class="footabout">
+        <img src="almasafulllog.png" alt="">
+        <p>في الماسة الكويتية، نفتخر بتوفير حلول استثنائية للعمالة المنزلية للأسر في جميع أنحاء الكويت. تأسست وكالتنا برؤية لتعزيز التواصل بين العمالة الأجنبية المهرة والعائلات الكويتية، وقد كنا اسمًا موثوقًا في هذه الصناعة لمدة [أدخل عدد السنوات] سنوات.</p>
+      </div>
+      <div class="footersec3">
+        <div class="footmenu">
+          <h3 class=""></h3>
+          <ul>
+            <li><a href="#home">الصفحة الرئيسية</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#about">معلومات عنا</a></li>
+            <li><a href="#contactus">اتصل بنا</a></li>
+            <li><a href="#">العربية</a></li>
+          </ul>
+        </div>
+    
+        <div class="footcontact">
+          <p>مكتب رقم ٠٨، الطابق الأول، <br> الصالة العربيد الرئيسية، <br> الفروانية، الكويت.</p>
+          <!-- WhatsApp icon -->
+    
+          <br>
+          <p> <i class="fas fa-phone"></i> +٩٦٥ ٩٩٥٧٦٨٥٠ </p>
+          <p><i class="fab fa-whatsapp"></i> +٩٦٥ ٦٧٧٨٠٥٧٧ </p>
+    
+    
+          <p> <i class="far fa-envelope"></i> info@almasaalkuwaitiya.com</p>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+    <div class="pixellarkcontainer">
+      <div class="policies">
+        All Rights Reserved | All Wrongs Reversed |Terms & Conditions | Privacy Policy | Disclaimer
+      </div>
+      <div class="webdesign">Website Design & Development by <a href="https://pixellark.com" class="pixellark">PixelLark
+          <span class="tooltip">
+            <img src="tump.png" alt="Tooltip Image">
+          </span></a></div>
+    </div>
+  </div>
+
+  <div id="loadingIndicator" class="loading-indicator">
+    <img src="loader-1.59604fac.webp" alt="Loading...">
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="sccript.js"></script>
+  <script src="scripthero.js"></script>
+  <script>
+    document.onreadystatechange = function () {
+      var loadingIndicator = document.getElementById('loadingIndicator');
+      if (document.readyState === 'complete') {
+        // Website has fully loaded, hide the loading indicator
+        loadingIndicator.style.display = 'none';
+      } else {
+        // Website is still loading, show the loading indicator
+        loadingIndicator.style.display = 'block';
+      }
+    };
+
+  </script>
+
+  <!-- header bar -->
+  <script>
+
+    // JavaScript code to add event listener on scroll
+    window.addEventListener("scroll", function () {
+      var header = document.querySelector(".headerdes"); // Changed the query selector to use .header1 class
+      if (window.scrollY >= 80) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- menusec -->
+  <script>
+    const menuDiv = document.querySelector('.menu');
+    const menuSecDiv = document.querySelector('.menusec');
+
+
+    menuDiv.addEventListener('click', () => {
+      menuSecDiv.classList.remove('hiddenf');
+      var header = document.querySelector('.headerdes');
+      var scrollY = window.scrollY || window.pageYOffset;
+
+      header.style.position = 'absolute';
+      header.style.top = scrollY + 'px';
+    });
+
+
+    menuSecDiv.addEventListener('click', () => {
+      menuSecDiv.classList.add('hiddenf');
+      var header = document.querySelector('.headerdes');
+      function applyFixedPosition() {
+        header.style.position = 'fixed';
+        header.style.top = '0px';
+      }
+      const delay = 800; //link with menusec transition
+      setTimeout(applyFixedPosition, delay);
+    });
+
+
+  </script>
+  <!-- summarysec -->
+  <script>
+    // Function to animate the number from a starting value to the target value
+    function animateNumber(element, startValue, endValue, duration) {
+      const range = endValue - startValue;
+      const increment = range / duration;
+      let current = startValue;
+
+      const timer = setInterval(() => {
+        current += increment;
+        element.textContent = Math.round(current);
+
+        if (current >= endValue) {
+          element.textContent = endValue;
+          clearInterval(timer);
+        }
+      }, 10);
+    }
+
+    // Call the animation function for each number
+
+
+    // Define a function to check if the element is visible
+    function isElementVisible(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Get the element with ID 'num3'
+    const num3Element = document.getElementById('num3');
+
+    // Check if the element is visible when the page loads
+    if (isElementVisible(num3Element)) {
+      // If the element is visible, then run the animation
+      animateNumber(num3Element, 0, 200, 500);
+    }
+
+    // Observer to check if the element becomes visible during scrolling
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // If the element becomes visible, run the animation
+          animateNumber(num3Element, 0, 200, 500);
+          const num1Element = document.getElementById('num1');
+          animateNumber(num1Element, 0, 120, 500); // Animation duration: 1500ms
+          const num4Element = document.getElementById('num4');
+          animateNumber(num4Element, 0, 200, 500); // Animation duration: 1500ms
+          const num2Element = document.getElementById('num2');
+          animateNumber(num2Element, 0, 12, 500); // Animation duration: 1500ms
+          // Unobserve the element since we only want to trigger the animation once
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    // Start observing the element
+    observer.observe(num3Element);
+// Animation duration: 1500ms
+
+
+
+  </script>
+
+
+
+  <!-- about img -->
+  <script>
+    const images = [
+      "a1 (2).jpg",
+      "a1 (3).jpg",
+      // Add more image paths as needed
+    ];
+
+    const imageCard = document.querySelector(".image-card");
+    const imgElement = document.querySelector(".aboutimg");
+    let currentImageIndex = 0;
+
+    function changeImageWithTransition() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      imgElement.style.transition = "transform 1s ease";
+      imgElement.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        imgElement.src = images[currentImageIndex];
+        imgElement.style.transform = "scale(1)";
+      }, 1000);
+    }
+
+    function startAutoScaling() {
+      changeImageWithTransition();
+      setInterval(changeImageWithTransition, 5000); // Change image every 5 seconds
+    }
+
+    startAutoScaling();
+  </script>
+
+  <!--   /* expanded card text */ -->
+  <script>
+    const msgCards = document.querySelectorAll('.expandedqcard');
+
+    msgCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Remove 'expanded' class from other cards
+        msgCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.classList.remove('expanded');
+          }
+        });
+
+        // Toggle 'expanded' class on the clicked card
+        card.classList.toggle('expanded');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
