@@ -68,7 +68,7 @@ body {
     background-position: center;
     animation-name: scaleloop;
     animation-duration: 7s;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     position: relative;
 
@@ -157,7 +157,7 @@ text-align: center;
     text-transform: uppercase;
     animation-name: titleanimation;
     animation-duration: 7s;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     display: none;
     z-index: 99;
@@ -166,7 +166,7 @@ text-align: center;
 @media (max-width: 767px) {
     .hero-title {
         position: static;
-        animation: newanime 6s;
+        animation: newanime ease-in-out 6s;
         animation-delay: 1s;
         font-size: 10vw;
         text-align: center;
@@ -194,7 +194,7 @@ text-align: center;
     text-transform: uppercase;
     animation-name: brandanimation;
     animation-duration: 7s;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     display: none;
     z-index: 99;
@@ -203,7 +203,7 @@ text-align: center;
 @media (max-width: 767px) {
     .hero-brandname {
         position: static;
-        animation: newanime 7s;
+        animation: newanime ease-in-out 7s;
         font-size: 5vw;
         text-align: center;
         opacity: 0;
@@ -320,7 +320,7 @@ text-align: center;
     top: 35%;
     animation-name: brandlogoanimation;
     animation-duration: 7s;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     display: none;
     z-index: 99;
@@ -394,7 +394,7 @@ text-align: center;
     bottom: 0;
     width: 100vh;
     z-index: 2;
-    animation: shape1a 7s;
+    animation: shape1a ease-in-out 7s;
     display: none;
 }
 
@@ -409,7 +409,7 @@ text-align: center;
     width: 100vh;
     z-index: 1;
     display: none;
-    animation: shape2a 7s;
+    animation: shape2a ease-in-out 7s;
 }
 
 .slider.active .shape2 {
@@ -531,11 +531,11 @@ text-align: center;
 
 @media (max-width: 767px) {
     .shape1 {
-        animation: shape1an 7s;
+        animation: shape1an ease-in-out 7s;
     }
 
     .shape2 {
-        animation: shape2an 7s;
+        animation: shape2an ease-in-out 7s;
     }
 
 }
@@ -598,7 +598,7 @@ text-align: center;
     font-weight: 600;
     display: none;
     width: 150px;
-    animation: newanime 5s;
+    animation: newanime ease-in-out 5s;
     opacity: 0;
     animation-delay: 2s;
     margin: 0 auto; /* Center horizontally */
